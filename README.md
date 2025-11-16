@@ -3,9 +3,9 @@
 This is a website for some of my most important projects i have done in the data science class|2025 !
 
 ## About This Site
-This site will be used to share notes and project updates.
+This site will be used to share notes, project updates and new projects. 
 
 ### Key Features
-* Written in Markdown
+* Written in HTML AND CSS 
 * Hosted for free by GitHub
-* Uses a default theme
+* Uses a font awesome and the Lato font from google fonts 
