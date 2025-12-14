@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/styles.css">
-    <title>woBol.github.io</title>
+    <title>woBol Projects</title>
 </head>
 
 <!-- Body -->
@@ -52,6 +52,98 @@
             </p>
         </div>
         <img id="schueller-image" src="images/schueller-image.png" alt="Schueller's visualization">
+    </div>
+</section>
+<!-- Subhead Project II -->
+<section class="features-sub-head bg-light py-3">
+    <div class="container">
+        <div>
+            <h1 class="md">Homework Project 06:Conflict Dynamics Between Israel and Palestine (1946-2021)</h1>
+            
+            <p> <b>This project analyzes patterns of conflict involving Israel and Palestinian groups using UCDP conflict data from
+                Kaggle.</b>
+            </p>
+            <h2 class="md">Group Members</h2>
+            <ul>
+                <li>Wol Bol Wol Majok</li>
+                <li>Gabrielle Edwards</li>
+            </ul>
+            <h2 class="md">Report</h2>
+            <h3>Introduction</h3>
+            <p>
+                The purpose of this project is to examine patterns of conflict events involving Israel and Palestine from 1946 to
+                2021.
+                Our analysis uses the Uppsala Conflict Data Program (UCDP) dataset, downloaded from Kaggle:
+                <a
+                    href="https://www.kaggle.com/datasets/zazaucd/conflict-data">https://www.kaggle.com/datasets/zazaucd/conflict-data</a>
+                This dataset contains event-level records of organized violence, including the actors involved, conflict type,
+                location,
+                and date. Because the dataset covers many global conflicts, our task was to identify, clean, and analyze the
+                specific
+                subset related to Israel and Palestine.
+                Our group posed several guiding research questions, including:
+            </p>
+
+            <h3>Methods & Results</h3>
+            <p>
+                I began by examining the dataset's structure using .info() and .describe() to understand the variables,
+                completeness,
+                and data quality. I discovered that many columns were missing large proportions of values, so I filtered out columns
+                with over 80% missing data. This produced a cleaner, more workable dataset.
+                Next, I selected a set of useful columns relevant to the questions I was addressing (such as location, side_a,
+                side_b,
+                year, and type_of_conflict). I copied these selected columns into a separate dataframe to simplify processing.
+                I then converted start_date and ep_end_date to datetime formats using pd.to_datetime, and normalized the text in
+                side_a,
+                side_b, and location so that name variations could be matched consistently. I created keyword lists to identify
+                events
+                involving Israel or Palestine. Using these keywords, I filtered the dataset into a subset (df_ip) containing only
+                events
+                in which either side_a or side_b matched those groups.
+                To ensure accurate categorization, I wrote a helper function contains_keyword(text, keywords) to detect group
+                references
+                in each row. Using this, I created new columns identifying whether each row involved Israel, Palestine, or both.
+                From
+                there, I generated basic frequency counts and visualizations showing conflict types over time.
+            </p>
+            <h3>Conclusions & Limitations</h3>
+            <p>
+                Our analysis reveals several important patterns:
+                1.Conflict types vary substantially over time.The animated bar chart shows clear shifts in dominant conflict types
+                in different periods. Certain decades are marked by
+                increases in organized battles, while others show rises in one-sided violence(civilian targeting).
+                2. Events involving Israel and Palestinian groups occur across the entire historical range of the dataset.
+                The line chart confirms that conflict events are not limited to a single era, but instead persist from 1946 through
+                2021.
+                3. The dataset supports broad comparisons between actors.
+                By isolating Israel-related and Palestine-related events, we can distinguish which groups appear most often in
+                different
+                roles and conflict types, although precise attribution requires caution.
+            <h3>Limitations</h3>
+            1. Lack of geographic precision:
+            The dataset does not provide latitude/longitude, limiting our ability to identify specific cities or create accurate
+            geographic heatmaps.
+            2. Missing data:
+            Many original columns were unusable due to extreme missingness, requiring extensive filtering.
+            3. Ambiguous actor names:
+            Variations in actor naming (e.g., “Government of Israel” vs. “Israel Defense Forces”) required manual keyword matching,
+            introducing potential error.
+            4. Event duplication within years:
+            Because we used the uncollapsed dataset, some years contain multiple records that may refer to related incidents
+            </p>
+            <p>
+                <a class="md" href="https://colab.research.google.com/drive/12K2aYoxYS4unP4Lff6lQ_y-FCbDwdyNJ?usp=sharing">Link to
+                    Google Colabs</a>
+            </p>
+        </div>
+</section>
+<section class="features-sub-head bg-light py-3">
+    <h2 class="container md">Visualization</h2>
+    <div>
+        <p>
+            <iframe src="conflict_intensity_by_years.html" width="100%" height="750" style="border:none;">
+            </iframe>
+        </p>
     </div>
 </section>
 
