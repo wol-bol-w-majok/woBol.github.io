@@ -80,8 +80,23 @@
                 location,
                 and date. Because the dataset covers many global conflicts, our task was to identify, clean, and analyze the
                 specific
-                subset related to Israel and Palestine.
+                subset related to Israel and Palestine.<br>
                 Our group posed several guiding research questions, including:
+            </p>
+            <h3>Questions My Visualizations Address</h3>
+            <p>
+                What kinds of conflict has each group (Israel vs. Palestinian groups) perpetrated, experienced, or participated in over
+                time?<br>
+                How does the distribution of conflict types involving Israel and Palestine change from 1946–2021?
+
+            </p>
+            <h3>Questions My Groupmate’s Visualizations Address</h3>
+            <p>
+                Which group has perpetrated the most violence over time?<br>
+                How does the distribution of conflict events differ between Gaza, the West Bank, and Israel?<br>
+                Which cities or regions experience the highest concentration of conflict events in a given year?<br>
+                Are certain areas consistently “hotspots” over time?
+
             </p>
 
             <h3>Methods & Results</h3>
@@ -92,43 +107,42 @@
                 with over 80% missing data. This produced a cleaner, more workable dataset.
                 Next, I selected a set of useful columns relevant to the questions I was addressing (such as location, side_a,
                 side_b,
-                year, and type_of_conflict). I copied these selected columns into a separate dataframe to simplify processing.
+                year, and type_of_conflict). I copied these selected columns into a separate dataframe to simplify processing.<br>
                 I then converted start_date and ep_end_date to datetime formats using pd.to_datetime, and normalized the text in
                 side_a,
                 side_b, and location so that name variations could be matched consistently. I created keyword lists to identify
                 events
                 involving Israel or Palestine. Using these keywords, I filtered the dataset into a subset (df_ip) containing only
                 events
-                in which either side_a or side_b matched those groups.
+                in which either side_a or side_b matched those groups.<br>
                 To ensure accurate categorization, I wrote a helper function contains_keyword(text, keywords) to detect group
                 references
-                in each row. Using this, I created new columns identifying whether each row involved Israel, Palestine, or both.
-                From
-                there, I generated basic frequency counts and visualizations showing conflict types over time.
+                in each row. Using this, I created new columns identifying whether each row involved Israel, Palestine, or both.<br>
+                From there, I generated basic frequency counts and visualizations showing conflict types over time.
             </p>
             <h3>Conclusions & Limitations</h3>
             <p>
-                Our analysis reveals several important patterns:
-                1.Conflict types vary substantially over time.The animated bar chart shows clear shifts in dominant conflict types
+                Our analysis reveals several important patterns:<br>
+                <b>1.</b>Conflict types vary substantially over time.The animated bar chart shows clear shifts in dominant conflict types
                 in different periods. Certain decades are marked by
-                increases in organized battles, while others show rises in one-sided violence(civilian targeting).
-                2. Events involving Israel and Palestinian groups occur across the entire historical range of the dataset.
+                increases in organized battles, while others show rises in one-sided violence(civilian targeting).<br>
+                <b>2.</b> Events involving Israel and Palestinian groups occur across the entire historical range of the dataset.
                 The line chart confirms that conflict events are not limited to a single era, but instead persist from 1946 through
-                2021.
-                3. The dataset supports broad comparisons between actors.
+                2021.<br>
+                <b>3.</b> The dataset supports broad comparisons between actors.
                 By isolating Israel-related and Palestine-related events, we can distinguish which groups appear most often in
                 different
                 roles and conflict types, although precise attribution requires caution.
             <h3>Limitations</h3>
-            1. Lack of geographic precision:
+            <b>1.</b> Lack of geographic precision:<br>
             The dataset does not provide latitude/longitude, limiting our ability to identify specific cities or create accurate
-            geographic heatmaps.
-            2. Missing data:
-            Many original columns were unusable due to extreme missingness, requiring extensive filtering.
-            3. Ambiguous actor names:
+            geographic heatmaps.<br>
+            <b>2.</b> Missing data:
+            Many original columns were unusable due to extreme missingness, requiring extensive filtering.<br>
+            <b>3.</b> Ambiguous actor names:
             Variations in actor naming (e.g., “Government of Israel” vs. “Israel Defense Forces”) required manual keyword matching,
-            introducing potential error.
-            4. Event duplication within years:
+            introducing potential error.<br>
+            <b>4.</b> Event duplication within years:
             Because we used the uncollapsed dataset, some years contain multiple records that may refer to related incidents
             </p>
             <p>
